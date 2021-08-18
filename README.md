@@ -6,8 +6,8 @@ pseudocode completed
 Day:-2:
 Tests- completed 
 classes:
-  - plane 
-  - passenegers 
-  - flight trips 
-completed 
+  - plane: completed 
+  - passenegers: completed  
+  - flight trips: completed 
+clean up of code - required 
 
