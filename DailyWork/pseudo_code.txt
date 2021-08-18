@@ -1,0 +1,63 @@
+As an airport assistant, I want to be able to create passengers with a name and a passport number so that I can add them to a flight
+ 
+class Passenger:
+                        name 
+                        passport number
+          give_name():
+                       return name 
+          give_passport():
+                       return passport number
+Test: 
+give_name
+give_passport
+ 
+
+As an airport assistant, I want to add passengers to Flight Trips so that I can sell them tickets
+ 
+class FlightTrips(plane):
+                 destination  
+                 time and date departure 
+                 duration 
+                 plane
+                 price 
+                 capacity  
+                 people on plane  = []
+ 
+          generate_report(flyers ):
+                  dict={​​​​​​​}​​​​​​​
+                  for people in people on plane:
+                         dict[people ]=passports
+                 return dict
+ 
+        check_capacity ( ):
+                if(capacity >= plane.max):
+                          return False
+                   else:      
+                           print("You can sell the passenger a ticket")          
+                          return True
+ 
+       sell_ticket(passenger  ):
+               if(check_capacity( )):
+                      people on plane.append(passenger)
+               else:
+                      print ("Cannot sell ticket plane is full")
+       
+       change_plane(new_plane):
+                plane=new_plane
+ 
+Test: 
+test the plane data 
+check_capacity() if plane has gone over its max 
+change_plane() check if the new plane has been assigned correctly  
+generate_report(flyers ) check if the out matches the passengers who are booked for the flight. 
+ 
+ 
+       
+plane
+
+class plane:
+          id
+          max capacity 
+ 
+    def __repr __():
+       return "plane:" id, max capacity
