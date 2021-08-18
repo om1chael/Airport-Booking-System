@@ -5,3 +5,4 @@ class Plane():
 
     def __repr__(self):
         return f"Plane({self.id}) Capacity({self.max_capacity})"
+
