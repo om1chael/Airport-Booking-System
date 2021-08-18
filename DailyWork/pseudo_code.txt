@@ -39,6 +39,8 @@ class FlightTrips(plane):
        sell_ticket(passenger  ):
                if(check_capacity( )):
                       people on plane.append(passenger)
+               else:
+                      print ("Cannot sell ticket plane is full")
        
        change_plane(new_plane):
                 plane=new_plane
