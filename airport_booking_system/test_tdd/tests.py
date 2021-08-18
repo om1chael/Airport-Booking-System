@@ -7,7 +7,7 @@ def test_passenger_name():
 
 def test_passenger_passport():
     assert p.give_passport() == "XY12345"
-    
+
 
 def test_generate_report():
     pass
