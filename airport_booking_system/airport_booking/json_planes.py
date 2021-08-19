@@ -13,4 +13,9 @@ def create_json_planes_file(plane_id, plane_cap):
     with open("planes.json", "w") as file:
         json.dump(data, file)
     return
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a0109bb58f032c909ae78b7928192912a1eb8cfb
 
