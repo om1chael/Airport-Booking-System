@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-import json
+from airport_booking_system.airport_booking.json_planes import create_json_planes_file
+from airport_booking_system.airport_booking.json_flights import create_json_flights_file
 
 app = Flask(__name__)
 
@@ -15,8 +16,12 @@ def index():
 @app.route('/create_flight', methods=["GET", "POST"])
 def create_flight():
     if request.method == 'POST':
-
-
+        create_json_flights_file(request.form['destination'],
+                                 request.form['time'],
+                                 request.form['duration'],
+                                 request.form['price'],
+                                 "temporary_plane_id",
+                                 "temporary_plane_cap")
     return render_template('create_flight.html')
 
 @app.route('/flight_trip')
