@@ -12,6 +12,16 @@ def index():
         FlightList = request.form['dropdown']
     return render_template('index.html', flight_list=flight_list)
 
+@app.route('/create_flight', methods=["GET", "POST"])
+def create_flight():
+    if request.method == 'POST':
+        create_json_flights_file(request.form['destination'],
+                                 request.form['time'],
+                                 request.form['duration'],
+                                 request.form['price'],
+                                 "temporary_plane_id",
+                                 "temporary_plane_cap")
+    return render_template('create_flight.html')
 
 @app.route('/create_flight', methods=["GET", "POST"])
 def create_flight():
