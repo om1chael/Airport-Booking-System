@@ -7,6 +7,16 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+# @app.route('/create_flight')
+# def index():
+#     return render_template('index.html')
+#
+# @app.route('/flight')
+# def index():
+#     return render_template('index.html')
+
+
+
 
 @app.route('/data', methods=["GET", "POST"])
 def data():
