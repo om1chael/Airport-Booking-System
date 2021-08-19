@@ -14,7 +14,7 @@ give_passport
 
 As an airport assistant, I want to add passengers to Flight Trips so that I can sell them tickets
  
-class FlightTrips(plane):
+class FlightTrips:
                  destination  
                  time and date departure 
                  duration 
