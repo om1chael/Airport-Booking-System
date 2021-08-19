@@ -12,5 +12,7 @@ def create_json_planes_file(plane_id, plane_cap):
     data.append(dict)
     with open("planes.json", "w") as file:
         json.dump(data, file)
+    return
 
-print(create_json_planes_file("asd123", 50))
+
+
