@@ -1,5 +1,5 @@
 import json
-from plane import Plane
+from airport_booking_system.airport_booking.plane import Plane
 
 
 def create_json_planes_file(plane_id, plane_cap):
