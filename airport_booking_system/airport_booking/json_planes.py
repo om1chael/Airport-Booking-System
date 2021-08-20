@@ -14,5 +14,3 @@ def create_json_planes_file(plane_id, plane_cap):
         json.dump(data, file)
     return
 
-
-
