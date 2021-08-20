@@ -13,7 +13,6 @@ def create_json_planes_file(plane_id, plane_cap):
         "max capacity": plane_cap
             }
     with open(json_path + "planes.json", "r") as file:
- main
         data = json.load(file)
     data.append(planes_dict)
 
