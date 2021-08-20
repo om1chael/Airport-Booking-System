@@ -22,9 +22,9 @@ def create_json_flights_file(destination, datetime, duration, price, plane_id, p
     return
 
 
-plane = Plane("FD234", 80)
-create_json_planes_file(plane.id, plane.max_capacity)
-ft = FlightTrip("France", "14/9 13:00", 2, "200", plane)
-
-create_json_flights_file(ft.destination, ft.datetime, ft.duration, ft.price, ft.plane_id, ft.plane_max)
+# plane = Plane("FD234", 80)
+# create_json_planes_file(plane.id, plane.max_capacity)
+# ft = FlightTrip("France", "14/9 13:00", 2, "200", plane)
+#
+# create_json_flights_file(ft.destination, ft.datetime, ft.duration, ft.price, ft.plane_id, ft.plane_max)
 
