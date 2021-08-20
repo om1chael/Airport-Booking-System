@@ -1,6 +1,7 @@
 from airport_booking_system.airport_booking.passenger import Passenger
 from airport_booking_system.airport_booking.plane import Plane
-
+import json
+from definitions import ROOT_DIR, json_path
 
 class FlightTrip:
     def __init__(self, flight_id: str, destination, datetime, duration, price, plane):
@@ -27,6 +28,12 @@ class FlightTrip:
     def add_passenger(self, passenger):
         if self.return_capacity() >= 1:
             self.people.append(passenger.data)
+            with open(json_path + "passengers.json", "r+") as file:
+                data = json.load(file)
+                data.update(dict)
+                file.seek(0)
+                json.dump(data, file)
+            return
         else:
             print("Plane is full")
             return "Plane is full"
@@ -34,3 +41,9 @@ class FlightTrip:
     def generate_report(self):
         return self.people
 
+# p = Plane("QW123", 100)
+# f = FlightTrip("ASDFF123", "destination", "datetime", "duration", 4, p)
+# pas = Passenger("Peter", "BV6543")
+# f.add_passenger(pas)
+#
+# print(f.people)

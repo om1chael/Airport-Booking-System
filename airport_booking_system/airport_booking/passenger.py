@@ -1,12 +1,12 @@
-
 class Passenger:
-    def __init__(self, name, passport):
+    def __init__(self, plane_id, name, passport):
         self.name = name
         self.passport = passport
-        self.data = {
+        self.plane_id = plane_id
+        self.data = {self.plane_id: [{
             "name": name,
             "passport": passport
-        }
+        }]}
 
     def give_name(self):
         return self.name
