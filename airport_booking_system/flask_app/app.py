@@ -25,8 +25,8 @@ def create_flight():
                                  request.form['time'],
                                  request.form['duration'],
                                  request.form['price'],
-                                 # request.form['planes'],
-                                 "temporary_plane_cap")
+                                 request.form['planes'],
+                                 ["temporary_plane_cap"])
     return render_template('create_flight.html', plane_list=planes)
 
 
