@@ -1,0 +1,9 @@
+<form  action ='/' method="POST" >
+         <select name="fly">
+   {%  for current_flights in json_file %}
+   <option > {{ current_flights }} </option>
+   {% endfor %}
+   </select>
+         <p><input type = "submit" value = "submit" /></p>
+    <br>
+</form>
