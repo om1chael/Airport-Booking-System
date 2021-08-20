@@ -1,8 +1,1 @@
-<<<<<<< HEAD
 [{"Destination": "florida", "Date:Time": "13/9 13:00", "Duration": 16, "Price": "1200", "Plane ID": "XY879", "Plane Maximum Capacity": 100}, {"Destination": "France", "Date:Time": "14/9 13:00", "Duration": 2, "Price": "200", "Plane ID": "FD234", "Plane Maximum Capacity": 80}, {"Destination": "France", "Date:Time": "14/9 13:00", "Duration": 2, "Price": "200", "Plane ID": "FD234", "Plane Maximum Capacity": 80}, {"Destination": "France", "Date:Time": "14/9 13:00", "Duration": 2, "Price": "200", "Plane ID": "FD234", "Plane Maximum Capacity": 80}, {"Destination": "France", "Date:Time": "14/9 13:00", "Duration": 2, "Price": "200", "Plane ID": "FD234", "Plane Maximum Capacity": 80}, {"Destination": "France", "Date:Time": "14/9 13:00", "Duration": 2, "Price": "200", "Plane ID": "FD234", "Plane Maximum Capacity": 80}]
-=======
-
-[{"Destination": "florida", "Date:Time": "13/9 13:00", "Duration": 16, "Price": "1200", "Plane ID": "XY879", "Plane Maximum Capacity": 100},
-  {"Destination": "France", "Date:Time": "14/9 13:00", "Duration": 2, "Price": "200", "Plane ID": "FD234", "Plane Maximum Capacity": 80}]
-
->>>>>>> a0109bb58f032c909ae78b7928192912a1eb8cfb
