@@ -19,14 +19,14 @@ def create_flight():
     flight_list = ['flight1', 'flight2']
     with open(json_path + "planes.json", 'r') as jsonfile:
         planes = json.load(jsonfile)
-        print(planes)
     if request.method == 'POST':
-        create_json_flights_file(request.form['destination'],
+        create_json_flights_file('XY0123',
+                                 request.form['destination'],
                                  request.form['time'],
                                  request.form['duration'],
                                  request.form['price'],
-                                 request.form['planes'],
-                                 ["temporary_plane_cap"])
+                                 'plane_id',
+                                 "temporary_plane_cap")
     return render_template('create_flight.html', plane_list=planes)
 
 
