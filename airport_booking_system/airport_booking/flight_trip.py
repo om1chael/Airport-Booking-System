@@ -1,6 +1,5 @@
-from passenger import Passenger
-from plane import Plane
-import json
+from airport_booking_system.airport_booking.passenger import Passenger
+from airport_booking_system.airport_booking.plane import Plane
 
 
 class FlightTrip:
@@ -33,3 +32,4 @@ class FlightTrip:
 
     def generate_report(self):
         return self.people
+

@@ -6,4 +6,16 @@ Airport Booking System
 
 {% block body %}
 <h1>Airport Booking System</h1>
+<label for="flights">Choose a flight:</label>
+<select name="flights" id="flights">
+  {% for dropdown in flight_list %}
+   <option value="{{ dropdown }}">{{ dropdown }}</option>
+   {% endfor %}
+</select>
+<p><a class="btn btn-default" type="submit" value = 'Select' href="/flight_trip" role="button">Select Flight trip &raquo;</a></p>
+<p><a href="/create_flight">Create Flight trip &raquo;</a></p>
+
+
+
+
 {% endblock %}
