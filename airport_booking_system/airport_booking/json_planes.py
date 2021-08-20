@@ -10,7 +10,11 @@ def create_json_planes_file(plane_id, plane_cap):
             }
     with open(json_path + "planes.json", "r") as file:
         data = json.load(file)
+<<<<<<< HEAD
     data.append(planes_dict)
+=======
+    data.append(dict)
+>>>>>>> main
     with open(json_path + "planes.json", "w") as file:
         json.dump(data, file)
     return

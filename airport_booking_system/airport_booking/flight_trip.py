@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 from airport_booking_system.airport_booking.passenger import Passenger
 from airport_booking_system.airport_booking.plane import Plane
 
 
+=======
+>>>>>>> main
 class FlightTrip:
-    def __init__(self, destination, datetime, duration, price, plane):
+    def __init__(self, flight_id: str, destination, datetime, duration, price, plane):
+        self.flight_id = flight_id.upper()
         self.destination = destination
         self.datetime = datetime
         self.duration = duration
