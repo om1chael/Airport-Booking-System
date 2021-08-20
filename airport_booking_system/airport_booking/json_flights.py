@@ -5,8 +5,12 @@ from airport_booking_system.airport_booking.plane import Plane
 from airport_booking_system.airport_booking.json_planes import create_json_planes_file
 
 
+# import Class that will be used by Flask and in JSON file
 
 def create_json_flights_file(destination, datetime, duration, price, plane_id, plane_maxcap):
+    # create a new key (flight ID) with a list of the flight details as the value
+    # add to the dictionary in the JSON file
+    # values come from FlightTrip class
     flights_dict = {
         "Destination": destination,
 
@@ -20,6 +24,8 @@ def create_json_flights_file(flight_id, destination, datetime, duration, price, 
         "Plane ID": plane_id,
         "Plane Maximum Capacity": plane_maxcap
     }
+
+
       
 
 
@@ -27,6 +33,7 @@ def create_json_flights_file(flight_id, destination, datetime, duration, price, 
         data = json.load(file)
         data.update(dict)
         file.seek(0)
+ main
         json.dump(data, file)
     return
 
