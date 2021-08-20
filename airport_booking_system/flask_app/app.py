@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-from airport_booking_system.airport_booking.json_planes import create_json_planes_file
 from airport_booking_system.airport_booking.json_flights import create_json_flights_file
 
 app = Flask(__name__)

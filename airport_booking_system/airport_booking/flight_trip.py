@@ -1,8 +1,3 @@
-from passenger import Passenger
-from plane import Plane
-import json
-
-
 class FlightTrip:
     def __init__(self, destination, datetime, duration, price, plane):
         self.destination = destination
