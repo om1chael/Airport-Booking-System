@@ -3,12 +3,13 @@ from flask import Flask,render_template, redirect, url_for, request
 import requests
 import re
 import os
+from definitions import ROOT_DIR, json_path
 import json
 app = Flask(__name__)
 filepath=os.path.join(os.path.dirname(__file__)+"/current_flights.json")
 #current_flights.json
 def read_file():
-    with open('current_flights.json',) as flights:
+    with open(json_path + 'flight_trips.json',) as flights:
         data=flights.read()
         print(type(data))
     return json.loads(data)

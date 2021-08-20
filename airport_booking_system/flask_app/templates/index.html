@@ -14,10 +14,10 @@ Airport Booking System
 </select>
 <p><a class="btn btn-default" type="submit" value = 'Select' href="/flight_trip" role="button">Select Flight trip &raquo;</a></p>
 <form name="FlightList" action ='' method="post" >
-         <select name="dropdown">
-   {% for dropdown in flight_list %}
-   <option value="{{ dropdown }}">{{ dropdown }}</option>
-   {% endfor %}
+    <select name="dropdown">
+       {% for dropdown in flight_list %}
+       <option value="{{ dropdown }}">{{ dropdown }}</option>
+       {% endfor %}
    </select>
     <br>
     <p><a class="btn btn-default" type="submit" value = 'Select' href="/create_flight" role="button">Create Flight trip &raquo;</a></p>
