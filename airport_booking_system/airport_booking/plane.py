@@ -1,3 +1,4 @@
+# Defines Plane class with id number and maximum capacity attributes
 class Plane:
     def __init__(self, id_num, max_capacity):
         self.id = id_num
