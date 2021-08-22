@@ -17,13 +17,6 @@ def read_file():
         print(type(data))
     return json.loads(data)
 
-
-<<<<<<< HEAD
-print(read_file())
-
-
-=======
->>>>>>> main
 @app.route("/", methods=['POST', 'GET'])
 def index():
     json_file = read_file()
@@ -36,13 +29,12 @@ def index():
     else:
         user = re.search("[^=][A-Z\d]+", str(request.get_data('fly'))).group()
         print(user, "000000", json_file[str(user)])
-<<<<<<< HEAD
+
         main = json_file[str(user)][0]
         locat = main["Destination"]
         time = main["Time"]
-=======
+
         # main=json_file[str(user)][0]
->>>>>>> main
 
         return redirect(url_for('success', id=user))
 
