@@ -1,10 +1,8 @@
-from airport_booking_system.airport_booking.passenger import Passenger
-from airport_booking_system.airport_booking.plane import Plane
 import json
-from definitions import ROOT_DIR, json_path
+from config.definitions import json_path
 
 class FlightTrip:
-    def __init__(self, flight_id: str, destination, datetime, duration, price, plane):
+    def __init__(self, flight_id, destination, datetime, duration, price, plane):
         self.flight_id = flight_id.upper()
         self.destination = destination
         self.datetime = datetime
@@ -13,6 +11,22 @@ class FlightTrip:
         self.people = []
         self.plane_id = plane.id
         self.plane_max = plane.max_capacity
+        self.create_flight_trip()
+
+    def create_flight_trip(self):
+        flight_dict = {self.flight_id: [{
+            "Destination": self.destination,
+            "Date:Time": self.datetime,
+            "Duration": self.duration,
+            "Price": self.price,
+            "Plane ID": self.plane_id,
+            "Plane Maximum Capacity": self.plane_max
+        }]}
+        with open(json_path + "flight_trips.json", "r+") as file:
+            data = json.load(file)
+            data.update(flight_dict)
+            file.seek(0)
+            json.dump(data, file)
 
     def set_plane(self, new_plane):
         if new_plane.max_capacity > len(self.people):
@@ -40,6 +54,8 @@ class FlightTrip:
 
     def generate_report(self):
         return self.people
+
+
 
 # p = Plane("QW123", 100)
 # f = FlightTrip("ASDFF123", "destination", "datetime", "duration", 4, p)

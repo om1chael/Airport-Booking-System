@@ -1,6 +1,5 @@
 import json
-from definitions import ROOT_DIR, json_path
-from airport_booking_system.airport_booking.plane import Plane
+from config.definitions import json_path
 
 
 def create_json_planes_file(plane_id, plane_cap):
