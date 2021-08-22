@@ -1,6 +1,7 @@
 import json
 from config.definitions import json_path
 
+# Define Flight Trip class
 class FlightTrip:
     def __init__(self, flight_id, destination, datetime, duration, price, plane):
         self.flight_id = flight_id.upper()
@@ -28,19 +29,21 @@ class FlightTrip:
             file.seek(0)
             json.dump(data, file)
 
+    # Assigns a new plane if the max capacity of the new plane is greater than the number of passengers on the flight
     def set_plane(self, new_plane):
         if new_plane.max_capacity > len(self.people):
             self.plane_id = new_plane.id
             self.plane_max = new_plane.max_capacity
         else:
-            print("Plane capacity is too small, you cannot choose this plane.")
             return "Plane capacity is too small, you cannot choose this plane."
 
+    # Returns the available capacity on the plane
     def return_capacity(self):
         return self.plane_max - len(self.people)
 
+    # Adds a passenger to the flight if the flight capacity is greater than zero
     def add_passenger(self, passenger):
-        if self.return_capacity() >= 1:
+        if self.return_capacity() > 0:
             self.people.append(passenger.data)
             with open(json_path + "passengers.json", "r+") as file:
                 data = json.load(file)
@@ -49,17 +52,10 @@ class FlightTrip:
                 json.dump(data, file)
             return
         else:
-            print("Plane is full")
             return "Plane is full"
 
+    # Generates report of the list of passengers on the flight
     def generate_report(self):
         return self.people
 
 
-
-# p = Plane("QW123", 100)
-# f = FlightTrip("ASDFF123", "destination", "datetime", "duration", 4, p)
-# pas = Passenger("Peter", "BV6543")
-# f.add_passenger(pas)
-#
-# print(f.people)
