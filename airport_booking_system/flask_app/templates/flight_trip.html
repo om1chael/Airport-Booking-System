@@ -5,7 +5,49 @@ Airport Booking System
 {% endblock %}
 
 {% block body %}
+<form  method="POST" >
+<p><strong>information for Plane ID: {{plane_id}}:</strong></p>
+<ul>
+{% for i in data %}
+    <table style="width:20%">
+         <tr>
+            <th>Plane ID</th>
+            <th>Destination</th>
+             <th>Duration</th>
+             <th>Time</th>
+             <th>Price</th>
+         </tr>
+         <tr>
+            <td> {{plane_id}}</td>
+             <td>{{i.Destination}}</td>
+            <td>{{i.Duration}}</td>
+            <td>{{i.Date}}</td>
+             <td>{{i.Price}}</td>
+         </tr>
 
+      </table>
+    {% endfor %}
+</ul>
+    <br>
+
+    <p>Please fill in this form to add a customer to this flight.</p>
+    <hr>
+    <label for="Customer Name"><b>Customer Name</b></label>
+    <input type="text" placeholder="Customer Name" name="Name" required>
+
+    <label for="psw"><b>Passport</b></label>
+    <input type="text" placeholder="Enter customer Passport" name="psw" required>
+
+
+      <button type="submit" >Add Customer</button>
+ <hr>
+  </div>
+
+</form>
+
+  <div >
+        <button type="submit" >Generate Customer Report</button>
+    </div>
 
 
 {% endblock %}

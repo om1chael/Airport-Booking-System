@@ -1,46 +1,56 @@
-import json
-from flask import Flask, render_template, request, jsonify
-from airport_booking_system.airport_booking.json_flights import create_json_flights_file
-from definitions import ROOT_DIR, json_path
+import json, re
+from flask import Flask, render_template, redirect, url_for, request
+from airport_booking_system.airport_booking.flight_trip import FlightTrip
+from airport_booking_system.airport_booking.plane import Plane
+from config.definitions import json_path
 
 app = Flask(__name__)
 
 
-@app.route('/')
+def read_file():
+    with open(json_path + 'flight_trips.json', ) as flights:
+        data = flights.read()
+    return json.loads(data)
+
+
+@app.route("/", methods=['POST', 'GET'])
 def index():
-    flight_list = ['flight1', 'flight2']
-    if request.method == 'POST':
-        FlightList = request.form['dropdown']
-    return render_template('index.html', flight_list=flight_list)
+    json_file = read_file()
+    if request.method == 'GET':
+        user = read_file()
+        return render_template("index.html",
+                               json_file=user)
+    else:
+        user = re.search("[^=][A-Z\d]+", str(request.get_data('fly'))).group()
+        print(user, "000000", json_file[str(user)])
+        # main=json_file[str(user)][0]
+
+        return redirect(url_for('success', id=user))
 
 
 @app.route('/create_flight', methods=["GET", "POST"])
 def create_flight():
-    flight_list = ['flight1', 'flight2']
+    plane = Plane('987', 100)
     with open(json_path + "planes.json", 'r') as jsonfile:
         planes = json.load(jsonfile)
     if request.method == 'POST':
-        create_json_flights_file('XY0123',
-                                 request.form['destination'],
-                                 request.form['time'],
-                                 request.form['duration'],
-                                 request.form['price'],
-                                 'plane_id',
-                                 "temporary_plane_cap")
+        flight = FlightTrip(request.form['id'],
+                            request.form['destination'],
+                            request.form['time'],
+                            request.form['duration'],
+                            request.form['price'],
+                            plane)
     return render_template('create_flight.html', plane_list=planes)
 
 
-@app.route('/flight_trip')
-def flight_trip():
-    return render_template('flight_trip.html')
-
-
-# @app.route('/data', methods=["GET", "POST"])
-# def data():
-#     if request.method == "GET":
-#         return '<h1>Data works</h1>'
-#     elif request.method == "POST":
-#         return 'POST'
+@app.route('/flight_trip/<id>', methods=['POST', 'GET'])
+def success(id):
+    if request.method == 'GET':
+        user = read_file()
+        return render_template("flight_trip.html",
+                               plane_id=id,
+                               data=user[id]
+                               )
 
 
 if __name__ == '__main__':
