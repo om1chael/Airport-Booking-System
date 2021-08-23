@@ -6,7 +6,7 @@ Airport Booking System
 
 {% block body %}
 <form  method="POST" >
-<p><strong>information for Plane ID: {{plane_id}}:</strong></p>
+<p><strong>information for Flight ID: {{flight_id}}:</strong></p>
 <ul>
 {% for i in data %}
     <table style="width:20%">
@@ -18,15 +18,23 @@ Airport Booking System
              <th>Price</th>
          </tr>
          <tr>
-            <td> {{plane_id}}</td>
+            <td> {{i.Plane_ID}}</td>
              <td>{{i.Destination}}</td>
             <td>{{i.Duration}}</td>
             <td>{{i.Date}}</td>
              <td>{{i.Price}}</td>
          </tr>
-
-      </table>
+    </table>
     {% endfor %}
+    <form action="http://127.0.0.1:5000/flight_trip/" method="post">
+        <label for="planes">Reassign plane:</label>
+        <select name="planes" id="planes">
+            {% for dropdown in plane_list %}
+            <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Assign">
+    </form>
 </ul>
     <br>
 
@@ -41,13 +49,13 @@ Airport Booking System
 
       <button type="submit" >Add Customer</button>
  <hr>
-  </div>
 
 </form>
 
   <div >
         <button type="submit" >Generate Customer Report</button>
-    </div>
+  </div>
+
 
 
 {% endblock %}
