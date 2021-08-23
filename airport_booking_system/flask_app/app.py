@@ -30,10 +30,11 @@ def index():
 
 @app.route('/create_flight', methods=["GET", "POST"])
 def create_flight():
-    plane = Plane('987', 100)
     with open(json_path + "planes.json", 'r') as jsonfile:
         planes = json.load(jsonfile)
     if request.method == 'POST':
+        plane = Plane(request.form['planes'])
+        print(request.form['planes'])
         flight = FlightTrip(request.form['id'],
                             request.form['destination'],
                             request.form['time'],
