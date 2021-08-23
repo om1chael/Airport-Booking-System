@@ -1,8 +1,8 @@
 from airport_booking_system.airport_booking.passenger import Passenger
 from airport_booking_system.airport_booking.plane import Plane
 import json
-from definitions import ROOT_DIR, json_path
-
+import os
+from Setup_Config.definitions import ROOT_DIR, json_path
 # Define Flight Trip class
 class FlightTrip:
     def __init__(self, flight_id: str, destination, datetime, duration, price, plane):

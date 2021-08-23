@@ -1,7 +1,7 @@
 import json
 from flask import Flask, render_template, request, jsonify
 from airport_booking_system.airport_booking.json_flights import create_json_flights_file
-from definitions import ROOT_DIR, json_path
+from Setup_Config.definitions import ROOT_DIR, json_path
 
 app = Flask(__name__)
 

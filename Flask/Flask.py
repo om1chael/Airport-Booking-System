@@ -1,20 +1,18 @@
-import flask
 from flask import Flask, render_template, redirect, url_for, request
-import requests
 import re
+from Setup_Config.definitions import ROOT_DIR, json_path
 import os
-from definitions import ROOT_DIR, json_path
 import json
 
 app = Flask(__name__)
-filepath = os.path.join(os.path.dirname(__file__) + "/current_flights.json")
+filepath = os.path.join(os.path.dirname(__file__))
+
+dir="C:/Users/Sacha/GitRepos/Airport-Booking-System/airport_booking_system/airport_booking/"
 
 
-# current_flights.json
 def read_file():
-    with open(json_path + 'flight_trips.json', ) as flights:
+    with open(dir +"flight_trips.json", ) as flights:
         data = flights.read()
-        print(type(data))
     return json.loads(data)
 
 
@@ -23,16 +21,32 @@ def index():
     json_file = read_file()
     print("2", type(json_file))
     if request.method == 'GET':
-        user = read_file()
+        user = json_file
         print(3, user)
         return render_template("index.html",
                                json_file=user)
     else:
+        print("4",str(request.get_data('fly')))
         user = re.search("[^=][A-Z\d]+", str(request.get_data('fly'))).group()
         print(user, "000000", json_file[str(user)])
-        # main=json_file[str(user)][0]
 
         return redirect(url_for('success', id=user))
+
+@app.route('/create_flight', methods=["GET", "POST"])
+def create_flight():
+    flight_list = ['flight1', 'flight2']
+    with open(json_path + "planes.json", 'r') as jsonfile:
+        planes = json.load(jsonfile)
+    if request.method == 'POST':
+        create_json_flights_file('XY0123',
+                                 request.form['destination'],
+                                 request.form['time'],
+                                 request.form['duration'],
+                                 request.form['price'],
+                                 'plane_id',
+                                 "temporary_plane_cap")
+    return render_template('create_flight.html', plane_list=planes)
+
 
 
 @app.route('/success/<id>', methods=['POST', 'GET'])
