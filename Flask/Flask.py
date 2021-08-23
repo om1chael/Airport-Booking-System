@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request
 import requests
 import re
 import os
-from Project.Setup_and_Configurations.definitions import ROOT_DIR, json_path
+from Project.config.definitions import ROOT_DIR, json_path
 import json
 from Project.airport_booking_system.airport_booking import passenger
 import pathlib
@@ -26,8 +26,6 @@ def index():
                                json_file=user)
     else:
         user = re.search("[^=][A-Z\d]+", str(request.get_data('fly'))).group()
-       # print(user, "000000", json_file[str(user)])
-
         return redirect(url_for('success', id=user))
 
 
@@ -38,7 +36,7 @@ def success(id):
 
     if request.method == 'GET':
         return render_template("third_page.html",
-                               plane_id=id,
+                               Flight_id=id,
                                data=user[id],
                                pass_info=pass_file[id][0])
     else:

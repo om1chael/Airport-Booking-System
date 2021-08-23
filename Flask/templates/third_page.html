@@ -18,11 +18,11 @@ input#hide:checked ~ span#content {
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
-  text-align:center ;
+  text-align:center ;}
 p {
   text-align: center;
 }
-}
+
 </style>
 </form>
   <form action="/">
@@ -30,7 +30,7 @@ p {
 </form>
 
 <form  method="POST" >
-<p style="text-align: center"><strong>Information for Plane ID: {{plane_id}}:</strong></p>
+<p style="text-align: center"><strong>Information for Flight ID: {{Flight_id}}:</strong></p>
 <ul>
 {% for i in data %}
     <table style="width:90%">
@@ -42,16 +42,15 @@ p {
              <th>Price</th>
          </tr>
          <tr>
-             <td>{{plane_id}}</td>
+             <td>{{i.Plane_ID}}</td>
              <td>{{i.Destination}}</td>
              <td>{{i.Duration}}</td>
              <td>{{i.Date}}</td>
              <td>{{i.Price}}</td>
          </tr>
       </table>
-    {% endfor %}
-
-
+{% endfor %}
+</form>
 
 </ul>
     <br>

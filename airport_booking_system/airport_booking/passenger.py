@@ -2,7 +2,7 @@
 import json
 import os
 
-from Project.Setup_and_Configurations.definitions import ROOT_DIR
+from Project.config.definitions import ROOT_DIR
 class Passenger:
     def __init__(self,plane_id ,passport, name):
         self.name = name
