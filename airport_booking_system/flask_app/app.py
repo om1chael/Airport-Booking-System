@@ -1,3 +1,4 @@
+import ast
 import json, re
 from flask import Flask, render_template, redirect, url_for, request
 from airport_booking_system.airport_booking.flight_trip import FlightTrip
@@ -33,8 +34,12 @@ def create_flight():
     with open(json_path + "planes.json", 'r') as jsonfile:
         planes = json.load(jsonfile)
     if request.method == 'POST':
-        plane = Plane(request.form['planes'])
+        plane_dict = eval(request.form['planes'])
+        print(plane_dict, type(plane_dict))
+        plane_id = plane_dict['id']
+        plane_cap = plane_dict['max_capacity']
         print(request.form['planes'])
+        plane = Plane(plane_id, plane_cap)
         flight = FlightTrip(request.form['id'],
                             request.form['destination'],
                             request.form['time'],
