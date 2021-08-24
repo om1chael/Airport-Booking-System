@@ -1,5 +1,4 @@
 {% extends "master.html" %}
-
 {% block title %}
 Airport Booking System
 {% endblock %}
@@ -10,15 +9,18 @@ Airport Booking System
 input#show, input#hide {
     display:none;
 }
+
 span#content {
     display:none;
 }
 input#show:checked ~ span#content {
   display:block;
 }
+
 input#hide:checked ~ span#content {
     display:none;
 }
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -26,8 +28,10 @@ table, th, td {
 p {
   text-align: center;
 }
+
 </style>
-<form action="http://127.0.0.1:5000/flight_trip" method="post">
+
+<form method="post">
 <p style="text-align: center"><strong>Information for Flight {{Flight_id}}:</strong></p>
 <ul>
 {% for i in data %}
@@ -50,27 +54,28 @@ p {
     </ul>
 </form>
 {% endfor %}
-<form action="http://127.0.0.1:5000/flight_trip/" method="post">
-        <label for="planes">Reassign plane:</label>
-        <select name="planes" id="planes">
-            {% for dropdown in plane_list %}
-            <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Assign">
-</form>
+<!--<form action="http://127.0.0.1:5000/flight_trip/" method="post">-->
+<!--        <label for="planes">Reassign plane:</label>-->
+<!--        <select name="planes" id="planes">-->
+<!--            {% for dropdown in plane_list %}-->
+<!--            <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--        <input type="submit" value="Assign">-->
+<!--</form>-->
 
-
+<form method="post">
     <br>
 
     <p>Please fill in this form to add a customer to this flight.</p>
     <hr>
     <label for="Customer Name"><b>Customer Name</b></label>
     <input type="text" placeholder="Customer Name" name="Name" required>
+
     <label for="psw"><b>Passport ID</b></label>
     <input type="text" placeholder="Enter customer Passport" name="passport_ID" required>
       <button type="submit" >Add Customer</button>
-
+</form>
  <hr>
 
 

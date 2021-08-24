@@ -1,6 +1,6 @@
 import json
 import re
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, flash, render_template, redirect, url_for, request
 from airport_booking_system.airport_booking import passenger
 from airport_booking_system.airport_booking.flight_trip import FlightTrip
 from airport_booking_system.airport_booking.plane import Plane
@@ -25,6 +25,21 @@ def set_plane(old_flight_id, plane_id, plane_max):
         data[old_flight_id][0]["Plane Maximum Capacity"] = plane_max
         file.seek(0)
         json.dump(data, file)
+
+
+def create_default_file(plane_id):
+    with open(json_path + "passengers.json", "r+") as file:
+        data = json.load(file)
+        if plane_id not in data.keys():
+            file.seek(0)
+            data[plane_id.upper()] = [{}]
+            print("Create_Data",data)
+            json.dump(data, file)
+
+
+
+
+
 
 
 @app.route("/", methods=['POST', 'GET'])
@@ -52,6 +67,7 @@ def create_flight():
                             request.form['duration'],
                             request.form['price'],
                             plane)
+        create_default_file(request.form['id'])
     return render_template('create_flight.html', plane_list=planes)
 
 
@@ -60,7 +76,6 @@ def flight_trip(id):
     pass_file = read_file('passengers.json')
     user = read_file('flight_trips.json')
     if request.method == 'GET':
-        print('get')
         return render_template("flight_trip.html",
                                Flight_id=id,
                                data=user[id],
@@ -69,8 +84,7 @@ def flight_trip(id):
                                plane_id=id,
                                plane_list=planes
                                )
-    else:
-        print('post')
+    if request.method == "POST":
         pass_id = request.form["passport_ID"]
         name = request.form["Name"]
         creat_pass = passenger.Passenger(id, pass_id, name)

@@ -2,7 +2,7 @@
 import json
 import os
 
-from config.definitions import ROOT_DIR
+from config.definitions import ROOT_DIR, json_path
 
 
 class Passenger:
@@ -22,11 +22,11 @@ class Passenger:
         return self.passport
 
     def create_default_file(self):
-        with open("passengers.json", "r+") as file:
+        with open(json_path + "passengers.json", "r+") as file:
             data = json.load(file)
             if self.plane_id not in data.keys():
                 file.seek(0)
-                data[self.plane_id] = [{"-": "-"}]
+                data[self.plane_id] = [{}]
                 json.dump(data, file)
 
     def create_json_passenger_file(self):
@@ -34,8 +34,9 @@ class Passenger:
         ## Each plane ID has a user
         ##
         # if(self.New_passnger_check()):
-        with open("passengers.json", "r+") as file:
+        with open(json_path + "passengers.json", "r+") as file:
             data = json.load(file)
+
             if self.plane_id in data.keys():
                 data[self.plane_id][0][self.passport] = self.name
             else:
@@ -50,7 +51,7 @@ class Passenger:
     #   return "Passport ID already exists"
 
     def New_passnger_check(self):
-        with open("passengers.json", "r+") as file:
+        with open(json_path + "passengers.json", "r+") as file:
             passenger_list = json.load(file)
 
         for flights in passenger_list.keys():
