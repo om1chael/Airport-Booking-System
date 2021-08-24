@@ -12,7 +12,7 @@ Airport Booking System
   <label for="destination">Destination:</label><br>
   <input type="text" id="destination" name="destination" value=""><br>
   <label for="time">Time and date:</label><br>
-  <input type="text" id="time" name="time" value=""><br><br>
+  <input type="datetime-local" id="time" name="time" value=""><br><br>
   <label for="duration">Duration:</label><br>
   <input type="text" id="duration" name="duration" value=""><br><br>
   <label for="price">Price:</label><br>
@@ -23,6 +23,7 @@ Airport Booking System
    <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
    {% endfor %}
 </select>
+  {{ form.csrf_token }}
   <input type="submit" value="Create">
 </form>
 

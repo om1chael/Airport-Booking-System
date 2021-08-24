@@ -31,8 +31,6 @@ p {
 }
 
 </style>
-
-<form action="http://127.0.0.1:5000/flight_trip" method="post">
 <p style="text-align: center"><strong>Information for Flight {{Flight_id}}:</strong></p>
 <ul>
 {% for i in data %}
@@ -53,7 +51,6 @@ p {
          </tr>
       </table>
     </ul>
-</form>
 {% endfor %}
 <form action="http://127.0.0.1:5000/flight_trip/" method="post">
         <label for="planes">Reassign plane:</label>
@@ -62,6 +59,7 @@ p {
             <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
             {% endfor %}
         </select>
+        {{ form.csrf_token }}
         <input type="submit" value="Assign">
 </form>
 

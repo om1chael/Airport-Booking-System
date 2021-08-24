@@ -1,12 +1,21 @@
 import json
 import re
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, flash
+from flask_wtf.csrf import CSRFProtect
 from airport_booking_system.airport_booking import passenger
 from airport_booking_system.airport_booking.flight_trip import FlightTrip
 from airport_booking_system.airport_booking.plane import Plane
 from config.definitions import json_path
+from forms import CreateFlightForm, AddPassengerForm
+import os
+
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
+csrf.init_app(app)
 
 with open(json_path + "planes.json", 'r') as jsonfile:
     planes = json.load(jsonfile)
@@ -41,19 +50,21 @@ def index():
 
 @app.route('/create_flight', methods=["GET", "POST"])
 def create_flight():
+    form = CreateFlightForm()
     if request.method == 'POST':
-        plane_dict = eval(request.form['planes'])
-        plane_id = plane_dict['id']
-        plane_cap = plane_dict['max_capacity']
-        plane = Plane(plane_id, plane_cap)
-        flight = FlightTrip(request.form['id'],
-                            request.form['destination'],
-                            request.form['time'],
-                            request.form['duration'],
-                            request.form['price'],
-                            plane)
-    return render_template('create_flight.html', plane_list=planes)
-
+        if form.validate_on_submit():
+            plane_dict = eval(request.form['planes'])
+            plane_id = plane_dict['id']
+            plane_cap = plane_dict['max_capacity']
+            plane = Plane(plane_id, plane_cap)
+            flight = FlightTrip(request.form['id'],
+                                request.form['destination'],
+                                request.form['time'],
+                                request.form['duration'],
+                                request.form['price'], plane)
+        else:
+            flash("Try again")
+    return render_template('create_flight.html', plane_list=planes, form=form)
 
 @app.route('/flight_trip/<id>', methods=['POST', 'GET'])
 def flight_trip(id):
