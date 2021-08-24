@@ -26,7 +26,7 @@ class Passenger:
             data = json.load(file)
             if self.plane_id not in data.keys():
                 file.seek(0)
-                data[self.plane_id] = [{"-": "-"}]
+                data[self.plane_id] = [{}]
                 json.dump(data, file)
 
     def create_json_passenger_file(self):
