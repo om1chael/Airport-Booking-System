@@ -27,6 +27,21 @@ def set_plane(old_flight_id, plane_id, plane_max):
         json.dump(data, file)
 
 
+def create_default_file(plane_id):
+    with open(json_path + "passengers.json", "r+") as file:
+        data = json.load(file)
+        if plane_id not in data.keys():
+            file.seek(0)
+            data[plane_id.upper()] = [{}]
+            print("Create_Data",data)
+            json.dump(data, file)
+
+
+
+
+
+
+
 @app.route("/", methods=['POST', 'GET'])
 def index():
     json_file = read_file("flight_trips.json")
@@ -52,12 +67,15 @@ def create_flight():
                             request.form['duration'],
                             request.form['price'],
                             plane)
+        create_default_file(request.form['id'])
     return render_template('create_flight.html', plane_list=planes)
 
 
 @app.route('/flight_trip/<id>', methods=['POST', 'GET'])
 def flight_trip(id):
     pass_file = read_file('passengers.json')
+    print(type(pass_file))
+    print(pass_file[id][0])
     user = read_file('flight_trips.json')
     if request.method == 'GET':
         print('get')
@@ -69,7 +87,7 @@ def flight_trip(id):
                                plane_id=id,
                                plane_list=planes
                                )
-    else:
+    if request.method == "POST":
         print('post')
         pass_id = request.form["passport_ID"]
         name = request.form["Name"]
