@@ -28,8 +28,7 @@ p {
 
 </style>
 
-<form method="post">
-<p style="text-align: center"><strong>Information for Flight {{Flight_id}}:</strong></p>
+<p style="text-align: center"><strong>Information for Flight {{ Flight_id }}:</strong></p>
 <ul>
 {% for i in data %}
     <table style="width:90%">
@@ -49,9 +48,8 @@ p {
          </tr>
       </table>
     </ul>
-</form>
 {% endfor %}
-<!--<form action="http://127.0.0.1:5000/flight_trip/" method="post">-->
+<!--<form method="post">-->
 <!--        <label for="planes">Reassign plane:</label>-->
 <!--        <select name="planes" id="planes">-->
 <!--            {% for dropdown in plane_list %}-->
@@ -67,10 +65,9 @@ p {
     <p>Please fill in this form to add a customer to this flight.</p>
     <hr>
     <label for="Customer Name"><b>Customer Name</b></label>
-    <input type="text" placeholder="Customer Name" name="Name" required>
-
+    <input pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Please enter letters only.')" type="text" placeholder="Customer Name" name="Name" required maxlength="20">
     <label for="psw"><b>Passport ID</b></label>
-    <input type="text" placeholder="Enter customer Passport" name="passport_ID" required>
+    <input type="text" placeholder="Enter customer Passport" name="passport_ID" required maxlength="9">
       <button type="submit" >Add Customer</button>
 </form>
  <hr>
