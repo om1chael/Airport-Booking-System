@@ -1,31 +1,73 @@
 {% extends "master.html" %}
 
-{% block title %}
-Airport Booking System
-{% endblock %}
-
 {% block body %}
-<h1>Create flight</h1>
-<form action="http://127.0.0.1:5000/create_flight" method="post">
-  <label for="id">ID:</label><br>
-  <input type="text" id="id" name="id" value="" maxlength="9" required><br>
-  <label for="destination">Destination:</label><br>
-  <input pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Please enter letters only.')" type="text" id="destination" name="destination" value="" maxlength="15" required><br>
-  <label for="time">Time and date:</label><br>
-  <input type="datetime-local" id="time" name="time" value="" min="2021-08-24T18:23" required><br><br>
-  <label for="duration">Duration:</label><br>
-  <input type="number" id="duration" name="duration" value="" required><br><br>
-  <label for="price">Price:</label><br>
-  <input type="number" id="price" name="price" value="" required><br><br>
-  <label for="planes">Choose a plane:</label>
-<select name="planes" id="planes">
-  {% for dropdown in plane_list %}
-   <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
-   {% endfor %}
-</select>
-  <input type="submit" value="Create">
-</form>
+<style>
+  fieldset {
+  background-color: #dddddd;
+  }
+  legend {
+  background-color: #fdfdff;
+  }
+  .column-left {
+  float: left;
+  width: 48%;
+  }
+  .column-right {
+  float: right;
+  width: 48%;
+  }
+  .row:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  }
+  .grid img {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  max-width: 100%;
+  }
+</style>
 
+<div class="row">
+  <div class="column-left">
+    <form action="http://127.0.0.1:5000/create_flight" method="post">
+    <fieldset>
+      <legend><h1>Create a Flight</h1></legend>
+      <label for="id">ID:</label><br>
+      <input type="text" id="id" name="id" value=""><br>
+      <label for="destination">Destination:</label><br>
+      <input type="text" id="destination" name="destination" value=""><br>
+      <label for="time">Time and date:</label><br>
+      <input type="datetime-local" id="time" name="time" value=""><br><br>
+      <label for="duration">Duration:</label><br>
+      <input type="text" id="duration" name="duration" value=""><br><br>
+      <label for="price">Price:</label><br>
+      <input type="text" id="price" name="price" value=""><br><br>
+      <label for="planes">Choose a plane:</label>
+    <select name="planes" id="planes">
+      {% for dropdown in plane_list %}
+       <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
+       {% endfor %}
+    </select>
+      <input type="submit" value="Create">
+    </fieldset>
+    </form>
+  </div>
+  <div class="column-right">
+    <main class="grid">
+      <img src="https://www.france-justforyou.com/sites/files/image/blog/france_just_for_you_collioure_thegoodlifeinfrance_0.jpg" alt="The gorgeous streets of France">
+      <img src="https://res.cloudinary.com/grohealth/image/upload/$wpsize_!_cld_full!,w_2321,h_1292,c_scale/v1588088806/iStock-927077190.jpg" alt="Colourful scenes in Cuba">
+      <img src="https://cdn.cnn.com/cnnnext/dam/assets/210524123140-kenya-animal-1.jpg" alt="The beautiful wilds in Kenya">
+      <img src="https://www.deccanherald.com/sites/dh/files/styles/article_detail/public/article_images/2020/05/19/file71zpsa6yrjr1bed8j8pm-681455338-1538163001.jpg?itok=QTYl0IU5" alt="Refreshing views in Papa New Guinea">
+    </main>
+  </div>
+</div>
 
 
 {% endblock %}
