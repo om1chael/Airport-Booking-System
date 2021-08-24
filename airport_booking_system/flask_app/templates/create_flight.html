@@ -20,7 +20,7 @@ Airport Booking System
   <label for="planes">Choose a plane:</label>
 <select name="planes" id="planes">
   {% for dropdown in plane_list %}
-   <option value="{{ dropdown }}">{{ dropdown.id }} {{ dropdown.max_capacity }}</option>
+   <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
    {% endfor %}
 </select>
   <input type="submit" value="Create">
