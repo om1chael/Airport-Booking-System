@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" content="width=device-device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
     <link type="text/css" rel="stylesheet"
        href="{{ url_for('static',
                         filename='hello.css')}}" />
+	<style>
+		.content {
+		 max-width: 500px;
+		 margin: auto;
+		}
+		ul {
+		list-style-type: none;
+		margin: 10px;
+		padding: 10px;
+		background-color: #F2ECEC;
+		overflow: hidden;
+		}
+		li {
+		font-family: helvetica,sans-serif;
+		font-weight: bold;
+		}
+		li a {
+		color: #1d1d1d;
+		text-align: center;
+		display: inline;
+		display: block;
+		padding: 8px;
+		}
+		li a:hover {
+		background-color: #dddddd;
+		}
+		body, h1, h2, h3, h4, h5, h6 {
+		text-align: center;
+		font-family:georgia,serif;
+		}
+		p {
+		font-family:georgia,serif;
+		font-size:17px;
+		}
+		body {
+		background-color: #f9f1f1;
+		opacity: 1;
+		}
+		.banner {
+		background-image: url(https://www.foundationrecruitment.com/wp-content/uploads/2018/08/shutterstock_airport-uk-developmens.jpg);
+		border: 5px solid #ffffff;
+		filter: blur(1px);
+<!--		-webkit-filter: blur(8px);-->
+		height: 48px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 60px;
+		}
+		.banner-txt {
+		font-size: 20px;
+		}
+		select {
+		text-align-last: center;
+		font-family:georgia,serif;
+		}
+		label {
+		padding: 10px;
+		}
+	</style>
+	<div class="banner">
+		<div class="banner-txt">
+			<h1>Airport Booking Manager</h1>
+		</div>
+	</div>
+	<ul style="display: inline">
+		<li><a href="{{ url_for('index') }}">Home</a>
+		<li><a href="{{ url_for('index') }}">Current Flights</a>
+		<li><a href="{{ url_for('create_flight') }}">Create a Flight</a>
+		<li><a href="{{ url_for('index') }}">Planes</a>
+	</ul>
+
 </head>
 <body>
+
 {% block body %}{% endblock %}
+
+<footer>
+	<p><font size="2px"><em>
+		This is information of the website and the authors
+	</em></font></p>
+</footer>
 </body>
 </html>

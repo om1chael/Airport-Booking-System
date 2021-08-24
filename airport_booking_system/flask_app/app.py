@@ -1,6 +1,6 @@
 import json
 import re
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, flash, render_template, redirect, url_for, request
 from airport_booking_system.airport_booking import passenger
 from airport_booking_system.airport_booking.flight_trip import FlightTrip
 from airport_booking_system.airport_booking.plane import Plane
@@ -74,11 +74,8 @@ def create_flight():
 @app.route('/flight_trip/<id>', methods=['POST', 'GET'])
 def flight_trip(id):
     pass_file = read_file('passengers.json')
-    print(type(pass_file))
-    print(pass_file[id][0])
     user = read_file('flight_trips.json')
     if request.method == 'GET':
-        print('get')
         return render_template("flight_trip.html",
                                Flight_id=id,
                                data=user[id],
@@ -88,7 +85,6 @@ def flight_trip(id):
                                plane_list=planes
                                )
     if request.method == "POST":
-        print('post')
         pass_id = request.form["passport_ID"]
         name = request.form["Name"]
         creat_pass = passenger.Passenger(id, pass_id, name)
