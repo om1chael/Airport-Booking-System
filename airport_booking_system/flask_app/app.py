@@ -1,19 +1,10 @@
 import json
-from flask import Flask, render_template, request
-from airport_booking_system.airport_booking.json_flights import create_json_flights_file
-from definitions import json_path
-=======
-import json, re
-=======
-import json
 import re
->>>>>>> main:airport_booking_system/flask_app/app.py
 from flask import Flask, render_template, redirect, url_for, request
 from airport_booking_system.airport_booking import passenger
 from airport_booking_system.airport_booking.flight_trip import FlightTrip
 from airport_booking_system.airport_booking.plane import Plane
 from config.definitions import json_path
->>>>>>> main:airport_booking_system/flask_app/app.py
 
 app = Flask(__name__)
 
