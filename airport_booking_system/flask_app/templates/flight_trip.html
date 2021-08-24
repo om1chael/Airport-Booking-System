@@ -1,3 +1,11 @@
+{% extends "master.html" %}
+
+{% block title %}
+Airport Booking System
+{% endblock %}
+
+{% block body %}
+
 <style>
 input#show, input#hide {
     display:none;
@@ -40,7 +48,7 @@ p {
              <td>{{i.Plane_ID}}</td>
              <td>{{i.Destination}}</td>
              <td>{{i.Duration}}</td>
-             <td>{{i.Date}}</td>
+             <td>{{i["Date-Time"]}}</td>
              <td>{{i.Price}}</td>
          </tr>
       </table>
@@ -94,3 +102,5 @@ p {
             {% endfor %}
       </table>
 </span>
+
+{% endblock %}

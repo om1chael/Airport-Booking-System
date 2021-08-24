@@ -69,7 +69,7 @@ def flight_trip(id):
                                plane_id=id,
                                plane_list=planes
                                )
-    if request.method == 'POST':
+    else:
         print('post')
         pass_id = request.form["passport_ID"]
         name = request.form["Name"]
