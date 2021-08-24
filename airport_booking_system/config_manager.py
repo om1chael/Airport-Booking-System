@@ -1,6 +1,6 @@
 import configparser
 import os
-from definitions import ROOT_DIR
+from config.definitions import ROOT_DIR
 
 _config = configparser.ConfigParser()
 _config.read(os.path.join(ROOT_DIR, "config.ini"))
