@@ -2,7 +2,7 @@ import json, re
 from flask import Flask, render_template, redirect, url_for, request
 from Project.airport_booking_system.airport_booking.flight_trip import FlightTrip
 from Project.airport_booking_system.airport_booking.plane import Plane
-from Project.config. import json_path
+from Project.config.definitions import json_path
 
 app = Flask(__name__)
 

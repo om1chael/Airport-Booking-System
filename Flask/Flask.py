@@ -6,12 +6,12 @@ import os
 from Project.config.definitions import ROOT_DIR, json_path
 import json
 from Project.airport_booking_system.airport_booking import passenger
-import pathlib
+# import pathlib #
 app = Flask(__name__)
 
-# current_flights.json
+# current_flights.json #
 def read_file(file_name):
-    with open( file_name, ) as flights:
+    with open(json_path+ file_name, ) as flights:
         data = flights.read()
     return json.loads(data)
 
@@ -48,9 +48,7 @@ def success(id):
         return render_template("third_page.html",
                                plane_id=id,
                                data=user[id],
-                               pass_info=pass_file[id][0]
-
-                               )
+                               pass_info=pass_file[id][0])
 
 
 
