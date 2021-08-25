@@ -16,6 +16,8 @@
 		padding: 1px;
 		background-color: #F2ECEC;
 		overflow: hidden;
+		margin-left:auto;
+		margin-right:auto;
 		}
 		a {
 		color: #1d1d1d;
@@ -51,7 +53,6 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding: 60px;
-		<!-- fit-->
 		}
 		.banner-txt {
 		font-size: 20px;
@@ -72,7 +73,7 @@
 		</div>
 	</div>
 	<div class="navbar">
-		<table style="width: 95%;margin-left:auto;margin-right:auto">
+		<table style="width: 95%">
 			<tr>
 				<th style="width:25%"><a href="{{ url_for('index') }}">Home</a></th>
 				<th style="width:25%"><a href="{{ url_for('index') }}">Current Flights</a></th>
@@ -94,10 +95,10 @@
 {% endwith %}
 {% block body %}{% endblock %}
 
-<footer>
-	<p><font size="2px"><em>
-		This is information of the website and the authors
-	</em></font></p>
-</footer>
+<!--<footer>-->
+<!--	<p><font size="2px"><em>-->
+<!--		This is information of the website and the authors-->
+<!--	</em></font></p>-->
+<!--</footer>-->
 </body>
 </html>
