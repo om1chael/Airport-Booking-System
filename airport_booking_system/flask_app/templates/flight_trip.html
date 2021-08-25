@@ -65,7 +65,7 @@ p {
     <p>Please fill in this form to add a customer to this flight.</p>
     <hr>
     <label for="Customer Name"><b>Customer Name</b></label>
-    <input pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Please enter letters only.')" type="text" placeholder="Customer Name" name="Name" required maxlength="20">
+    <input onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' type="text" placeholder="Customer Name" name="Name" required maxlength="20">
     <label for="psw"><b>Passport ID</b></label>
     <input type="text" placeholder="Enter customer Passport" name="passport_ID" required maxlength="9">
       <button type="submit">Add Passenger</button>
