@@ -40,16 +40,16 @@
     <fieldset>
       <legend><h1>Create a Flight</h1></legend>
       <label for="id">ID:</label><br>
-      <input type="text" id="id" name="id" value=""><br>
-      <label for="destination">Destination:</label><br>
-      <input type="text" id="destination" name="destination" value=""><br>
-      <label for="time">Time and date:</label><br>
-      <input type="datetime-local" id="time" name="time" value=""><br><br>
-      <label for="duration">Duration:</label><br>
-      <input type="text" id="duration" name="duration" value=""><br><br>
-      <label for="price">Price:</label><br>
-      <input type="text" id="price" name="price" value=""><br><br>
-      <label for="planes">Choose a plane:</label>
+  <input type="text" id="id" name="id" value="" maxlength="9" required><br>
+  <label for="destination">Destination:</label><br>
+  <input pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Please enter letters only.')" type="text" id="destination" name="destination" value="" maxlength="15" required><br>
+  <label for="time">Time and date:</label><br>
+  <input type="datetime-local" id="time" name="time" value="" min="2021-08-24T18:23" required><br><br>
+  <label for="duration">Duration:</label><br>
+  <input type="number" id="duration" name="duration" value="" required><br><br>
+  <label for="price">Price:</label><br>
+  <input type="number" id="price" name="price" value="" required><br><br>
+  <label for="planes">Choose a plane:</label>
     <select name="planes" id="planes">
       {% for dropdown in plane_list %}
        <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
