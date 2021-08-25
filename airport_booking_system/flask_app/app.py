@@ -87,6 +87,8 @@ def flight_trip(id):
         creat_pass = passenger.Passenger(id, pass_id, name)
         creat_pass.create_json_passenger_file()
         flash('Passenger added')
+
+        ## if plane has enough space ==> The user has been added
         return render_template("flight_trip.html",
                                flight_id=id,
                                plane_list=planes,
