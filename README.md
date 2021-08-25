@@ -8,7 +8,9 @@ Use the package manager pip to install airport_booking_system
 ### To create a flight trip:
 
 From the homepage:
-* Click 'Create flight trip'
+* Click 'Create flight trip' to navigate to the 'Create a flight trip' page
+
+On the create flight trip page:
 * Enter the flight trip details (flight ID, destination, time and date of departure, duration of flight, price of a ticket)
 * Assign a plane by choosing from the dropdown list
 * Click 'create'
@@ -17,7 +19,7 @@ From the homepage:
 ### To add a passenger to a flight
 
 From the homepage:
-* Select a flight trip from the dropdown menu
+* Select a flight trip from the dropdown menu to navigate to the specific flight trip page
 
 On the flight trip page:
 * Fill in the customer's name and passport
@@ -27,7 +29,7 @@ On the flight trip page:
 ### To reassign the plane for a flight trip
 
 From the homepage:
-* Select a flight trip from the dropdown menu
+* Select a flight trip from the dropdown menu to navigate to the specific flight trip page
 
 On the flight trip page:
 *  choose a plane from the dropdown menu
@@ -36,7 +38,7 @@ On the flight trip page:
 ### To display the passenger list for a particular flight
 
 From the homepage:
-* Select a flight trip from the dropdown menu
+* Select a flight trip from the dropdown menu to navigate to the specific flight trip page
 
 On the flight trip page:
 * Click 'show passengers' to view the list of passengers
