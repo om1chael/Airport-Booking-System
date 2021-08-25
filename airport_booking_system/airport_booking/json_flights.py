@@ -8,8 +8,8 @@ def create_json_flights_file(flight_id, destination, datetime, duration, price, 
         "Date:Time": datetime,
         "Duration": duration,
         "Price": price,
-        "Plane ID": plane_id,
-        "Plane Maximum Capacity": plane_maxcap
+        "Plane_ID": plane_id,
+        "Plane_MaxCap": plane_maxcap
     }]}
     print(dict)
 
