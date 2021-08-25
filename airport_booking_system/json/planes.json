@@ -1,1 +1,1 @@
-[{"id": "Airbus A220", "max_capacity": 160}, {"id": "XY879", "max_capacity": 100}]
+[{"id": "Airbus A220", "max_capacity": 160}, {"id": "XY879", "max_capacity": 100},{"id": "Test Plane", "max_capacity": 100},{"id": "Bus Plane", "max_capacity": 100},{"id": "Small Plane", "max_capacity": 2}]
