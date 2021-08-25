@@ -26,7 +26,7 @@ def set_plane(old_flight_id, plane_id, plane_max):
         json.dump(file, f,ensure_ascii=False, indent=4)
 
 
-
+#########
 def create_default_file(plane_id):
     with open(json_path + "passengers.json", "r+") as file:
         data = json.load(file)
