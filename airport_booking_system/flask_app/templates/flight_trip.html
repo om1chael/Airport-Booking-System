@@ -54,16 +54,16 @@ p {
     </ul>
 </form>
 {% endfor %}
-<!--<form action="http://127.0.0.1:5000/flight_trip/" method="post">-->
-<!--        <label for="planes">Reassign plane:</label>-->
-<!--        <select name="planes" id="planes">-->
-<!--            {% for dropdown in plane_list %}-->
-<!--            <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>-->
-<!--            {% endfor %}-->
-<!--        </select>-->
-<!--        <input type="submit" value="Assign">-->
-<!--</form>-->
+<form method="post">-->
+       <label for="planes">Reassign plane:</label>-->
+        <select name="planes" id="planes">-->
+            {% for dropdown in plane_list %}-->
+            <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>-->
+           {% endfor %}-->
+        </select>
+        <input type="submit" value="Assign">
 
+</form>
 <form method="post">
     <br>
 
@@ -75,6 +75,8 @@ p {
     <label for="psw"><b>Passport ID</b></label>
     <input type="text" placeholder="Enter customer Passport" name="passport_ID" required>
       <button type="submit" >Add Customer</button>
+<h1> Seats left on this Plane {{Seats_left}}</h1>
+
 </form>
  <hr>
 
