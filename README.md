@@ -41,4 +41,4 @@ From the homepage:
 * Select a flight trip from the dropdown menu to navigate to the specific flight trip page
 
 On the 'flight trip' page:
-* Click 'show passengers' to view the list of passengers
+* Click 'show passengers' to view the list of passengers on the flight trip
