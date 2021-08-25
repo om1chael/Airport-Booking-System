@@ -7,6 +7,7 @@ from airport_booking_system.airport_booking.plane import Plane
 from config.definitions import json_path
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 with open(json_path + "planes.json", 'r') as jsonfile:
     planes = json.load(jsonfile)
@@ -32,13 +33,8 @@ def create_default_file(plane_id):
         if plane_id not in data.keys():
             file.seek(0)
             data[plane_id.upper()] = [{}]
-            print("Create_Data",data)
+            print("Create_Data", data)
             json.dump(data, file)
-
-
-
-
-
 
 
 @app.route("/", methods=['POST', 'GET'])
@@ -67,6 +63,7 @@ def create_flight():
                             request.form['price'],
                             plane)
         create_default_file(request.form['id'])
+        flash('Flight created')
     return render_template('create_flight.html', plane_list=planes)
 
 

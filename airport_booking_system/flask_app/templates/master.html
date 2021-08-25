@@ -11,25 +11,23 @@
 		 max-width: 500px;
 		 margin: auto;
 		}
-		ul {
-		list-style-type: none;
+		table {
 		margin: 10px;
-		padding: 10px;
+		padding: 1px;
 		background-color: #F2ECEC;
 		overflow: hidden;
 		}
-		li {
+		a {
+		color: #1d1d1d;
 		font-family: helvetica,sans-serif;
 		font-weight: bold;
-		}
-		li a {
-		color: #1d1d1d;
 		text-align: center;
+		font-size: 14px;
 		display: inline;
 		display: block;
 		padding: 8px;
 		}
-		li a:hover {
+		a:hover {
 		background-color: #dddddd;
 		}
 		body, h1, h2, h3, h4, h5, h6 {
@@ -38,11 +36,10 @@
 		}
 		p {
 		font-family:georgia,serif;
-		font-size:17px;
+		font-size:15px;
 		}
 		body {
-		background-color: #f9f1f1;
-		opacity: 1;
+		background-color: #FDFBFB;
 		}
 		.banner {
 		background-image: url(https://www.foundationrecruitment.com/wp-content/uploads/2018/08/shutterstock_airport-uk-developmens.jpg);
@@ -54,6 +51,7 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding: 60px;
+		<!-- fit-->
 		}
 		.banner-txt {
 		font-size: 20px;
@@ -65,22 +63,35 @@
 		label {
 		padding: 10px;
 		}
+
+
 	</style>
 	<div class="banner">
 		<div class="banner-txt">
 			<h1>Airport Booking Manager</h1>
 		</div>
 	</div>
-	<ul style="display: inline">
-		<li><a href="{{ url_for('index') }}">Home</a>
-		<li><a href="{{ url_for('index') }}">Current Flights</a>
-		<li><a href="{{ url_for('create_flight') }}">Create a Flight</a>
-		<li><a href="{{ url_for('index') }}">Planes</a>
-	</ul>
-
+	<div class="navbar">
+		<table style="width: 95%;margin-left:auto;margin-right:auto">
+			<tr>
+				<th style="width:25%"><a href="{{ url_for('index') }}">Home</a></th>
+				<th style="width:25%"><a href="{{ url_for('index') }}">Current Flights</a></th>
+				<th style="width:25%"><a href="{{ url_for('create_flight') }}">Create a Flight</a></th>
+				<th style="width:25%"><a href="{{ url_for('index') }}">Planes</a></th>
+			</tr>
+		</table>
+	</div>
 </head>
 <body>
-
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color: green"><b>{{ message }}</b></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 {% block body %}{% endblock %}
 
 <footer>
