@@ -92,7 +92,10 @@ def flight_trip(id):
             print("if statement dict", plane_dict)
             plane_id = plane_dict['id']
             plane_cap = plane_dict['max_capacity']
-            set_plane(id, plane_id, plane_cap)
+            if plane_cap > passenger_count:
+                set_plane(id, plane_id, plane_cap)
+            else:
+                flash('Cannot change plane, not enough capacity')
         else:
             if space_left > 0:
                 pass_id = request.form["passport_ID"]
