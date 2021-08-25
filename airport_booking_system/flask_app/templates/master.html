@@ -14,7 +14,6 @@
 		table {
 		margin: 10px;
 		padding: 1px;
-		background-color: #F2ECEC;
 		overflow: hidden;
 		margin-left:auto;
 		margin-right:auto;
@@ -73,7 +72,7 @@
 		</div>
 	</div>
 	<div class="navbar">
-		<table style="width: 95%">
+		<table style="width: 95%; background-color: #F2ECEC">
 			<tr>
 				<th style="width:25%"><a href="{{ url_for('index') }}">Home</a></th>
 				<th style="width:25%"><a href="{{ url_for('index') }}">Current Flights</a></th>
@@ -84,15 +83,7 @@
 	</div>
 </head>
 <body>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li style="color: green"><b>{{ message }}</b></li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+
 {% block body %}{% endblock %}
 
 <!--<footer>-->
