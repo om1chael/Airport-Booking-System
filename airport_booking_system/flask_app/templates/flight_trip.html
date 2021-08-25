@@ -21,80 +21,98 @@ input#hide:checked ~ span#content {
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
-  text-align:center ;}
-p {
-  text-align: center;
+  text-align:center ;
 }
 
 </style>
+<h3><strong>Information for Flight {{Flight_id}}:</strong></h3>
 
-<p style="text-align: center"><strong>Information for Flight {{ Flight_id }}:</strong></p>
-<ul>
-{% for i in data %}
-    <table style="width:90%">
-         <tr>
-             <th>Plane ID</th>
-             <th>Destination</th>
-             <th>Duration</th>
-             <th>Time</th>
-             <th>Price</th>
-         </tr>
-         <tr>
-             <td>{{i.Plane_ID}}</td>
-             <td>{{i.Destination}}</td>
-             <td>{{i.Duration}}</td>
-             <td>{{i["Date-Time"]}}</td>
-             <td>{{i.Price}}</td>
-         </tr>
-      </table>
-    </ul>
-{% endfor %}
-<form method="post">
-       <label for="planes">Reassign plane:</label>-->
-        <select name="planes" id="planes">-->
-            {% for dropdown in plane_list %}-->
-            <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>-->
-           {% endfor %}-->
-        </select>
-        <input type="submit" value="Assign">
+<table style="width:100%">
+    <th style="width:30%; vertical-align: top; background-color: #F2ECEC; padding-right: 3%; ">
+        <form method="post">
+            <ul>
+                {% for i in data %}
+                <table style="width: 100%; background-color: #ffffff">
+                    <tr>
+                        <th>Plane ID</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:normal">{{i.Plane_ID}}</td>
+                    </tr>
+                    <tr>
+                        <th>Destination</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:normal">{{i.Destination}}</td>
+                    </tr>
+                    <tr>
+                        <th>Duration</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:normal">{{i.Duration}}</td>
+                    </tr>
+                    <tr>
+                        <th>Date-Time</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:normal">{{i["Date-Time"]}}</td>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:normal">{{i.Price}}</td>
+                    </tr>
+                </table>
+            </ul>
+        </form>
+    </th>
+    {% endfor %}
+    <th style="width:40%; vertical-align: top">
+        <form action="http://127.0.0.1:5000/flight_trip/" method="post">
+                <label for="planes">Reassign plane:</label>
+                <select name="planes" id="planes">
+                    {% for dropdown in plane_list %}
+                    <option value="{{ dropdown }}">{{ dropdown.id }} Capacity:{{ dropdown.max_capacity }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Assign">
+        </form>
+        <form method="post">
+            <br>
+            <p>Please fill in this form to add a customer to this flight.</p>
+            <hr>
+            <label for="Customer Name"><b>Customer Name</b></label>
+            <input type="text" placeholder="Customer Name" name="Name" required>
+            <label for="psw"><b>Passport ID</b></label>
+            <input type="text" placeholder="Enter customer Passport" name="passport_ID" required>
+            <button type="submit" >Add Customer</button>
+        </form>
+    </th>
 
-</form>
-<form method="post">
-    <br>
-
-    <p>Please fill in this form to add a customer to this flight.</p>
-    <hr>
-    <label for="Customer Name"><b>Customer Name</b></label>
-    <input pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Please enter letters only.')" type="text" placeholder="Customer Name" name="Name" required maxlength="20">
-    <label for="psw"><b>Passport ID</b></label>
-    <input type="text" placeholder="Enter customer Passport" name="passport_ID" required maxlength="9">
-      <button type="submit">Add Passenger</button>
-    <h3> Seats left on this Plane {{Seats_left}}</h3>
-</form>
- <hr>
-
-
-<label for="show">
-    <span>[Show Passengers]</span>
-</label>
-<input type=radio id="show" name="group">
-<label for="hide">
-    <span>[Hide]</span>
-</label>
-<input type=radio id="hide" name="group">
-<span id="content">
-      <table style="width:50%">
-         <tr>
-             <th>Passenger Name</th>
-             <th>Passport ID </th>
-         </tr>
-           {% for I in pass_info %}
-         <tr>
-             <td style="text-align:center" >{{pass_info[I]}}</td>
-             <td style="text-align:center" >{{I}}</td>
-         </tr>
-            {% endfor %}
-      </table>
-</span>
-
+    <th style="width:30%; overflow:auto; background-color: #F2ECEC">
+        <label for="show">
+            <span>[Show Passengers]</span>
+        </label>
+        <input type=radio id="show" name="group">
+        <label for="hide">
+            <span>[Hide]</span>
+        </label>
+        <input type=radio id="hide" name="group">
+        <span id="content">
+            <table style="width:50%">
+                <tr>
+                    <th>Passenger Name</th>
+                    <th>Passport ID </th>
+                </tr>
+                {% for I in pass_info %}
+                <tr>
+                    <td style="text-align:center" >{{pass_info[I]}}</td>
+                    <td style="text-align:center" >{{I}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </span>
+    </th>
+</table>
 {% endblock %}
