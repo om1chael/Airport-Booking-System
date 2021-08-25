@@ -1,1 +1,52 @@
-{"AS987": [{"Destination": "France", "Date-Time": "14/9 13:00", "Duration": 2, "Price": "200", "Plane_ID": "ANOTHER_Plane", "Plane Maximum Capacity": 160}], "ASDF2134": [{"Destination": "xxxxxxxxxx", "Date-Time": "2021-08-28T16:03", "Duration": "5", "Price": "22", "Plane_ID": "Airbus A220", "Plane Maximum Capacity": 160}], "XXXXXXX": [{"Destination": "aaaaa", "Date-Time": "2021-08-26T17:00", "Duration": "5", "Price": "22", "Plane_ID": "Airbus A220", "Plane Maximum Capacity": 160}], "SSSSSSSS": [{"Destination": "safd", "Date-Time": "2021-08-24T23:01", "Duration": "5", "Price": "22", "Plane_ID": "Airbus A220", "Plane Maximum Capacity": 160}], "": [{"Destination": "", "Date-Time": "", "Duration": "", "Price": "", "Plane_ID": "Airbus A220", "Plane Maximum Capacity": 160}]}
+{
+    "AS987": [
+        {
+            "Destination": "France",
+            "Date-Time": "14/9 13:00",
+            "Duration": 2,
+            "Price": "200",
+            "Plane_ID": "Bus Plane",
+            "Plane Maximum Capacity": 100
+        }
+    ],
+    "ASDF2134": [
+        {
+            "Destination": "xxxxxxxxxx",
+            "Date-Time": "2021-08-28T16:03",
+            "Duration": "5",
+            "Price": "22",
+            "Plane_ID": "Airbus A220",
+            "Plane Maximum Capacity": 160
+        }
+    ],
+    "XXXXXXX": [
+        {
+            "Destination": "aaaaa",
+            "Date-Time": "2021-08-26T17:00",
+            "Duration": "5",
+            "Price": "22",
+            "Plane_ID": "Test Plane",
+            "Plane Maximum Capacity": 100
+        }
+    ],
+    "SSSSSSSS": [
+        {
+            "Destination": "safd",
+            "Date-Time": "2021-08-24T23:01",
+            "Duration": "5",
+            "Price": "22",
+            "Plane_ID": "Bus Plane",
+            "Plane Maximum Capacity": 100
+        }
+    ],
+    "": [
+        {
+            "Destination": "",
+            "Date-Time": "",
+            "Duration": "",
+            "Price": "",
+            "Plane_ID": "Airbus A220",
+            "Plane Maximum Capacity": 160
+        }
+    ]
+}

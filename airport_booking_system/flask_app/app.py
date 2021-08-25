@@ -20,12 +20,14 @@ def read_file(file_name):
 
 
 def set_plane(old_flight_id, plane_id, plane_max):
-    with open(json_path + "flight_trips.json", "r+") as file:
-        data = json.load(file)
-        data[old_flight_id][0]["Plane_ID"] = plane_id
-        data[old_flight_id][0]["Plane Maximum Capacity"] = plane_max
-        file.seek(0)
-        json.dump(data, file)
+    # load JSON file and convert it to dict
+    file = dict(read_file("flight_trips.json"))
+    # change the json file by assigning the new values
+    file[old_flight_id][0]["Plane_ID"] = plane_id
+    file[old_flight_id][0]["Plane Maximum Capacity"] = plane_max
+    # dump that alternated dict into the json file
+    with open(json_path + "flight_trips.json", "w") as f:
+        json.dump(file, f, ensure_ascii=False, indent=4)
 
 
 def create_default_file(plane_id):
@@ -81,6 +83,7 @@ def flight_trip(id):
                                plane_id=id,
                                plane_list=planes
                                )
+
     if request.method == "POST":
         if request.form.get("planes") is not None:
             plane_dict = eval(request.form['planes'])
@@ -101,8 +104,8 @@ def flight_trip(id):
                                plane_list=planes,
                                data=user[id],
                                pass_info=pass_file[id][0],
-                               Seats_left=space_left)
-
+                               Seats_left=space_left
+                               )
 
 if __name__ == '__main__':
     app.debug = True
