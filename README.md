@@ -22,7 +22,7 @@ From the homepage:
 * Select a flight trip from the dropdown menu to navigate to the specific flight trip page
 
 On the 'flight trip' page:
-* Fill in the customer's name and passport
+* Fill in the passenger's name and passport
 * Click 'add passenger'
 * If the passenger has been added successfully, a message 'Passenger added' will show
 
