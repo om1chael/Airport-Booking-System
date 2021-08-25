@@ -1,4 +1,5 @@
 # Airport Booking System
+A system for Airport Assistants to create flight trips, add passengers to flights, assign/reassaign planes and generate a flight attendees list report.
 
 ## Installation
 Use the package manager pip to install airport_booking_system
@@ -15,17 +16,20 @@ From the homepage:
 To add a passenger to a flight
 From the homepage:
 * Select a flight trip from the dropdown menu
+On the flight trip page:
 * Fill in the customer's name and passport
 * Click 'add passenger'
 * If the passenger has been added successfully, a message 'Passenger added' will show
 
-To reassign the plane on a flight trip
+To reassign the plane for a flight trip
 From the homepage:
 * Select a flight trip from the dropdown menu
-* Choose a plane from the dropdown menu
+On the flight trip page:
+*  choose a plane from the dropdown menu
 * Refresh to show the updated information
 
 To display the passenger list for a particular flight
 From the homepage:
 * Select a flight trip from the dropdown menu
+On the flight trip page:
 * Click 'show passengers' to view the list of passengers
